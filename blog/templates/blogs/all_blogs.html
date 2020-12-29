@@ -1,0 +1,10 @@
+{% extends 'portfolio/base.html' %}
+      {% block content %}
+        <h1>WELCOME TO ANIKET BLOG PAGE</h1>
+        {% for blog in blogs %}
+        <a href="{% url 'blog:DETAILS' blog.id %}">{{ blog.title }}</a>
+        <p>{{ blog.description|truncatechars:100 }}</p>
+        <p>{{ blog.date }}</p>
+        
+        {% endfor %}
+   {% endblock %}

@@ -1,0 +1,29 @@
+
+      {% extends 'portfolio/base.html' %}
+      {% block content %}
+       {% load static %}
+      
+        <h1>WELCOME TO ANIKET PORTFOLIO</h1>
+        <img src="{% static 'portfolio/Image.jpg' %}" alt="Not available" height="600" width="600">
+        
+        <div class="row">
+         {% for project in projects %}
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+         <img src="{{ project.image.url }}" class="card-img-top"  alt="NOT AVAILABLE" height="200" width="100">
+        <h5 class="card-title">{{ project.title }}</h5>
+        <p class="card-text">{{ project.description }}</p>
+        {% if project.url %}
+            <a href="{{ project.url }}" class="btn btn-primary">LINK</a>
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+              
+
+    {% endblock %}
+   
